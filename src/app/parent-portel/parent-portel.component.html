@@ -1,0 +1,27 @@
+<div class="p-6">
+    <h1 class="text-2xl font-bold text-center mb-6">Parent Portal</h1>
+    <div *ngFor="let batch of batches" class="mb-8">
+      <h2 class="text-xl font-semibold mb-4">{{ batch.name }} Students</h2>
+      <div class="overflow-x-auto">
+        <table class="table-auto w-full border border-gray-300">
+          <thead>
+            <tr class="bg-gray-100">
+              <th class="px-4 py-2 border">Student ID</th>
+              <th class="px-4 py-2 border">Name</th>
+              <th class="px-4 py-2 border"> Total Mark</th>
+              <th class="px-4 py-2 border"> Grade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let student of batch.students">
+              <td class="px-4 py-2 border text-center">{{ student.id }}</td>
+              <td class="px-4 py-2 border text-center">{{ student.name }}</td>
+              <td class="px-4 py-2 border text-center">{{ student.marks }}</td>
+              <td class="px-4 py-2 border text-center">{{ student.grade }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,43 @@
+
+<div class="px-10">
+    <h1 class="text-2xl font-sans text-center mb-6 mt-7">Teacher Portal</h1>
+    <form (ngSubmit)="submitMarks()">
+      <div *ngFor="let batch of batches" class="mb-8">
+        <h2 class="text-xl font-semibold mb-4">{{ batch.name }} Students</h2>
+        <div class="overflow-x-auto">
+          <table class="table-auto w-full border border-gray-300">
+            <thead>
+              <tr class="bg-blue-200">
+                <th class="px-4 py-2 border">Student ID</th>
+                <th class="px-4 py-2 border">Name</th>
+                <th class="px-4 py-2 border"> TotalMarks</th>
+                <th class="px-4 py-2 border"> Grade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let student of batch.students">
+                <td class="px-4 py-2 border text-center">{{ student.id }}</td>
+                <td class="px-4 py-2 border text-center">{{ student.name }}</td>
+                <td class="px-4 py-2 border">
+                  <input
+                    type="number"
+                    class="border border-gray-300 rounded w-full px-2 py-1"
+                    [(ngModel)]="student.marks"
+                    [name]="'marks_' + batch.name + '_' + student.id" 
+                    required
+                  />
+                </td>
+                <td class="px-4 py-2 border text-center">{{ student.grade}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="flex justify-center align-items-center mb-7">
+          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 ">
+            Submit Marks
+          </button>
+      </div>
+    </form>
+  </div>
+  
